@@ -1,0 +1,183 @@
+[
+  [
+    {
+      "id": 0,
+      "name": "press_in_axes_or_cartridge_crash",
+      "states": [
+        {
+          "name": "e0_axes_released_via_fct",
+          "probability": 91
+        },
+        {
+          "name": "e1_spring_holder_broken_",
+          "probability": 0
+        },
+        {
+          "name": "e1a_machine_not_running",
+          "probability": 9
+        }
+      ],
+      "type": 1,
+      "relation": "hasFailureNode",
+      "cardinality": [ "1", "*" ],
+      "children": [
+        { "name": "P05_cartridge_press_in" },
+        {
+          "id": 18,
+          "name": "Corrective action for press_in_axes_or_cartridge_crash",
+          "states": [
+            {
+              "name": "ca0_mechanically_realigned_and_re_referenced",
+              "probability": 75
+            },
+            {
+              "name": "ca1_new_spring_holder_installed",
+              "probability": 25
+            }
+          ],
+          "type": 3,
+          "relation": "isCorrectedBy",
+          "cardinality": [ "1...*", "1...*" ],
+          "individualProbabilities": [
+            [
+              "e0_axes_released_via_fct",
+              [ 0.8105176470588236, 0.1894823529411765 ]
+            ],
+            [
+              "e1_spring_holder_broken_",
+              [ 0.1112345679012346, 0.8887654320987655 ]
+            ],
+            [
+              "e1a_machine_not_running",
+              [ 0.1112345679012346, 0.8887654320987655 ]
+            ]
+          ]
+        },
+        {
+          "id": 19,
+          "name": "c0_cause_undetermined",
+          "states": [
+            {
+              "name": "r1_Yes",
+              "probability": 59
+            },
+            {
+              "name": "r1_No",
+              "probability": 41
+            }
+          ],
+          "type": 4,
+          "relation": "isCausedBy",
+          "cardinality": [ "1...*", "1...*" ],
+          "individualProbabilities": [
+            [
+              "e0_axes_released_via_fct",
+              [ 0.5941176470588235, 0.4058823529411765 ]
+            ],
+            [
+              "e1_spring_holder_broken_",
+              [ 0.8887654320987655, 0.1112345679012346 ]
+            ],
+            [
+              "e1a_machine_not_running",
+              [ 0.5, 0.5 ]
+            ]
+          ]
+        },
+        {
+          "id": 20,
+          "name": "c1_spring_holder_mispositioned",
+          "states": [
+            {
+              "name": "r1_Yes",
+              "probability": 100
+            },
+            {
+              "name": "r1_No",
+              "probability": 0
+            }
+          ],
+          "type": 4,
+          "relation": "isCausedBy",
+          "cardinality": [ "1...*", "1...*" ],
+          "individualProbabilities": [
+            [
+              "e0_axes_released_via_fct",
+              [ 0.5, 0.5 ]
+            ],
+            [
+              "e1_spring_holder_broken_",
+              [ 0.0, 1.0 ]
+            ],
+            [
+              "e1a_machine_not_running",
+              [ 0.5, 0.5 ]
+            ]
+          ]
+        },
+        {
+          "id": 21,
+          "name": "c1_no_operator_was_on_site",
+          "states": [
+            {
+              "name": "r2_Yes",
+              "probability": 46
+            },
+            {
+              "name": "r2_No",
+              "probability": 54
+            }
+          ],
+          "type": 4,
+          "relation": "isCausedBy",
+          "cardinality": [ "1...*", "1...*" ],
+          "individualProbabilities": [
+            [
+              "e0_axes_released_via_fct",
+              [ 0.5, 0.5 ]
+            ],
+            [
+              "e1_spring_holder_broken_",
+              [ 0.5, 0.5 ]
+            ],
+            [
+              "e1a_machine_not_running",
+              [ 0.0, 1.0 ]
+            ]
+          ]
+        },
+        {
+          "id": 22,
+          "name": "s1_cartridge_position_seems_ok_but_cartridge_does_not_fit_properly",
+          "states": [
+            {
+              "name": "s1_Present",
+              "probability": 25
+            },
+            {
+              "name": "s1_Absent",
+              "probability": 75
+            }
+          ],
+          "type": 2,
+          "relation": "hasEffect",
+          "cardinality": [ "1...*", "1...*" ],
+          "individualProbabilities": [
+            [
+              "e0_axes_released_via_fct",
+              [ 0.1893439446366782, 0.8106560553633217 ]
+            ],
+            [
+              "e1_spring_holder_broken_",
+              [ 0.8762962962962964, 0.1237037037037037 ]
+            ],
+            [
+              "e1a_machine_not_running",
+              [ 0.8762962962962964, 0.1237037037037037 ]
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+]
